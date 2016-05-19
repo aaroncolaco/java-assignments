@@ -1,0 +1,73 @@
+<HTML>
+
+
+<BODY>
+			<B> Core Java Assignments
+			<BR>
+			<BR>
+			<img src="java.gif">
+			<TABLE width = "760" border = "1">
+				<TH>
+				<TR>
+					<TD width = "180" ><B>Assignment Name</TD>
+					<TD width = "1000" ><B>Description</TD>
+					<TD width = "100" ><B>Solution</TD>
+				</TR>
+				</TH>
+
+				<TR>
+					<TD>Multithreading : Reading text files </TD>
+					<TD>
+					Assume there is a directory with some files. Each file has some text, per line. There can be n number of files in the directory.<BR><BR>
+
+					Write a program which executes the following tasks:<BR><BR>
+
+					1. Read the directory & get number of files & read their names.<BR>
+
+					2. Create a thread to read the text from the files. <BR>
+
+					3. The thread will read text from the file at a time & write to a Queue.<BR>
+
+					4. Create a separate thread to read the text from the queue and write to a new file. <BR><BR>
+
+					Note: <BR><BR>
+					1.For n input files there should be n output files. <BR>
+					2.The second thread should wait unless there is some text to read from the queue. <BR>
+
+					</TD>
+					<TD><A href="Assignments\Multithreading\ReadFile.zip">
+						Source</A>
+					</TD>
+				</TR>
+
+
+				<TR>
+				   <TD>Multithreading : Reading text files and writing the data to the database </TD>
+
+				   <TD>
+				   Assume there is a directory with some files. Each file has some numbers, one number per line. There can be n number of files in the directory.<BR><BR>
+
+				   Write a program which executes the following tasks:<BR><BR>
+
+				   1. Accept the name of the directory from the command line. <BR>
+
+				   2. Read the directory & get number of files & read their names. <BR>
+
+				   3. Create a separate thread for each file. <BR>
+
+				   4. Each thread will read numbers from its own file & add all the numbers. <BR>
+
+				   5. In main add all the totals returned from each thread and write final total to some table in the oracle database.<BR>
+
+				   6. Table should be created from the backend with name as "Summation".<BR>
+
+
+				   </TD>
+
+				   <TD><A href="Assignments\Multithreading\ReadFileWriteToDatabase.zip">
+						Source</A>
+				   </TD>
+			   </TR>
+
+</BODY>
+</HTML>
