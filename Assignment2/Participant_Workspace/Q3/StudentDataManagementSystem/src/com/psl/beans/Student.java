@@ -1,6 +1,6 @@
 package com.psl.beans;
 
-public class Student{
+public class Student implements Comparable{
 	private int rollno;
 	private String studentName;
 	private int age;
@@ -42,5 +42,27 @@ public class Student{
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+    @Override
+    public int compareTo(Object t) {
+        
+        Student student = (Student) t;
+        
+        if ( (this.getStudentName().compareToIgnoreCase(student.getStudentName())) > 0 ) {
+            return 1;
+        } else if ( (this.getStudentName().compareToIgnoreCase(student.getStudentName())) < 0 ) {
+            return -1;
+        } else if (this.getAge() > student.getAge()) {
+            return 1;
+        } else if (this.getAge() < student.getAge()) {
+            return -1;
+        } else if (this.getRollno() > student.getRollno()) {
+            return 1;
+        } else if (this.getRollno() < student.getRollno()) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 	
 }
