@@ -26,7 +26,9 @@ public class DataManagerImpl implements DataManager {
         String[] cityStateStrings;
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/aaron/Downloads/PSL/Assignment2/Participant_Workspace/Q1/CityStateLocator/StateCityDetails.txt"));
+            // put full path to run locally. eg:
+            // /home/aaron/Downloads/PSL/Assignment2/Participant_Workspace/Q1/CityStateLocator/StateCityDetails.txt
+            BufferedReader br = new BufferedReader(new FileReader("StateCityDetails.txt"));
             
             while ( (line = br.readLine()) != null ) { // read until empty
                 cityStateStrings = line.split("-"); // [0]-state(key) & [1]-city(value)
