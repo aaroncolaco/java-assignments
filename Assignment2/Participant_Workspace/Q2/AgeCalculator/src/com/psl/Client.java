@@ -1,13 +1,8 @@
 package com.psl;
 
-import static java.lang.String.format;
-import static java.lang.String.format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,7 +49,7 @@ public class Client {
 		// You can test your code by calling findAge() method from here
 
         int age;
-        String[] dates = {"22-11-1993", "02-02-2019", "15-02-1996", "1998-02-22"};
+        String[] dates = {"22-11-1993", "02-02-2019", "15-02-1996", "1998-02-22"};  // last one should throw exception since future date
         try {
             for (String date : dates) {
                 age = new Client().findAge(date);
