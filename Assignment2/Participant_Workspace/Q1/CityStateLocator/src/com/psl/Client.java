@@ -14,11 +14,12 @@ public class Client {
             Map<String, List<String>> dataMap = new HashMap<>();    // okay even if not initialized because assigned later to the returned value from the function call. But have to allocate mem like this if we will store value ourselves.
             List <String> citiesList;
             String stateString;
+            String fileNameString = "/home/aaron/Downloads/PSL/Assignment2/Participant_Workspace/Q1/CityStateLocator/StateCityDetails.txt";
             
             DataManagerImpl dataManagerImpl = new DataManagerImpl();
             
             // TEST -populate the map
-            dataMap = dataManagerImpl.populateCityDataMap("StateCityDetails.txt");
+            dataMap = dataManagerImpl.populateCityDataMap(fileNameString);
             
             //To view dataMap value sets
             System.out.println("Check the hashmap after reading file:");
