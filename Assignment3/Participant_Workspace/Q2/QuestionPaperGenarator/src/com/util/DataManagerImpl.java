@@ -38,7 +38,9 @@ public class DataManagerImpl implements DataManager {
 
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM questionBank");
-            
+
+            databaseConnectionManager.closeConnection();  // after all queries
+
             while (resultSet.next()) {
                 
                question = new Question();
@@ -56,7 +58,6 @@ public class DataManagerImpl implements DataManager {
                
                questionsList.add(question);
 
-               databaseConnectionManager.closeConnection();
             }
             
         } catch (ClassNotFoundException ex) {
