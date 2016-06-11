@@ -7,18 +7,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnectionManager implements DBConnectionUtil {
+   
+    Connection connection = null;
 
     @Override
     public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondb", "root", "root");
         
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondb", "root", "root");
+
         return connection;
     }
 
     @Override
     public void closeConnection() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questiondb", "root", "root");
+        
+        connection.close();
     }
-
 
 }
