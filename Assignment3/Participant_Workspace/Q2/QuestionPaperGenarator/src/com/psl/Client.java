@@ -37,6 +37,24 @@ public class Client {
         criteriasList.add(new Criteria(Category.Geography, Complexity.Simple, 2));
         
         questionsSet = dataManagerImpl.generateQuestionPaper(questionsList, criteriasList);
+        for (Question question1 : questionsSet) {
+            System.out.println(question1.getSrno());
+        }
+        
+        criteriasList.clear();
+        questionsSet.clear();
+        
+        System.out.println(". . . . . .");
+        // same thing again to test if unique questions
+        criteriasList.add(new Criteria(Category.History, Complexity.Complex, 1));
+        criteriasList.add(new Criteria(Category.History, Complexity.Simple, 2));
+        criteriasList.add(new Criteria(Category.Science, Complexity.Complex, 1));
+        criteriasList.add(new Criteria(Category.GK, Complexity.Complex, 1));
+        criteriasList.add(new Criteria(Category.Geography, Complexity.Simple, 2));
 
+        questionsSet = dataManagerImpl.generateQuestionPaper(questionsList, criteriasList);
+        for (Question question1 : questionsSet) {
+            System.out.println(question1.getSrno());
+        }
     }
 }

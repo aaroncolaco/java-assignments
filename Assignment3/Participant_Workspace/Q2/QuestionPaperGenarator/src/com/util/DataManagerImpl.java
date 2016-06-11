@@ -19,8 +19,9 @@ import java.util.logging.Logger;
 
 public class DataManagerImpl implements DataManager {
     
-    private static int[] questionSrNo = null;
-
+    // list of questions added to paper already
+    static ArrayList <Integer> questionSrNosList = new ArrayList<>();
+    
     @Override
     public List<Question> populateData() {
         
@@ -100,14 +101,30 @@ public class DataManagerImpl implements DataManager {
         
         Set <Question> questionsSet = new LinkedHashSet<>();
         List<Question> questionsByComplexityList = new ArrayList<>(), questionsByCategoryList = new ArrayList<>();
+        Question question = null;
+        
+        int count = 0;  // to keep count of number of questions added
         
         for (Criteria criteria : template) {
             questionsByCategoryList = getQuestionByCategory(criteria.getCategory(), list);  // get according to category passed
             questionsByComplexityList = getQuestionByComplexity(criteria.getComplexity(), questionsByCategoryList);  // get from matching category list, the ones with matching complexity
             
-            for (int i = 0; i < criteria.getNoOfQuestion(); i++) {  // number of questions needed 
-                questionsSet.add(questionsByComplexityList.get(i)); 
+            count = 0;
+            for (int i = 0; i < questionsByComplexityList.size(); i++) {  // for size of list 
                 
+                question = questionsByComplexityList.get(i);
+                
+                // if not already added, add
+                if (! alreadyAdded(question)) {
+                    questionsSet.add(question); // add quest to set
+                    questionSrNosList.add(question.getSrno()); // add SrNo to list of added quest
+                    count++;
+                    
+                    // if required no of quest obtained, break
+                    if (count >= criteria.getNoOfQuestion()) {
+                        break;
+                    }
+                }
             }
             
             questionsByCategoryList.clear();
@@ -115,6 +132,18 @@ public class DataManagerImpl implements DataManager {
         }
         
         return questionsSet;
+    }
+    
+    // to check if question already added to set 
+    private boolean alreadyAdded(Question question) {
+        boolean added = false;
+        
+        // if question SrNo already there in list of quest added
+        if (questionSrNosList.contains(question.getSrno())) {
+            added = true;
+        }
+        
+        return added;
     }
 
     @Override
