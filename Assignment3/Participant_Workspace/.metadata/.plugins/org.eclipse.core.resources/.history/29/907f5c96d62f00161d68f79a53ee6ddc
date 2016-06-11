@@ -1,0 +1,18 @@
+package com.psl;
+
+import com.util.InventoryServiceImpl;
+
+public class Client {
+
+	/**
+	 * @param args
+	 */
+	
+	public static void main(String[] args) {
+		// Call all the functionalities from here to test your code.
+		InventoryServiceImpl inventoryServiceImpl = new InventoryServiceImpl();
+		
+		inventoryServiceImpl.readAllItemsFromDb();
+	}
+		
+}

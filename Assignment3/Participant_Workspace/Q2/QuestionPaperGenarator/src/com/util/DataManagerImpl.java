@@ -35,8 +35,7 @@ public class DataManagerImpl implements DataManager {
         
         try {
             connection = databaseConnectionManager.getConnection(); // returns a connection object
-            databaseConnectionManager.closeConnection();    // can close connection even at the end
-            
+
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM questionBank");
             
@@ -56,6 +55,8 @@ public class DataManagerImpl implements DataManager {
                question.setComplexity(Complexity.valueOf(resultSet.getString("Complexity")));
                
                questionsList.add(question);
+
+               databaseConnectionManager.closeConnection();
             }
             
         } catch (ClassNotFoundException ex) {
