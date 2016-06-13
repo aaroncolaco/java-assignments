@@ -45,7 +45,7 @@ public class DataManagerImpl implements DataManager {
                 
                question = new Question();
                
-               question.setSrno(Integer.parseInt(resultSet.getString("SrNo")));
+               question.setSrno(resultSet.getInt("SrNo"));  // or get as string & parse Int 
                question.setQuestion(resultSet.getString("Question"));
                question.setOption1(resultSet.getString("optionA"));
                question.setOption2(resultSet.getString("optionB"));
