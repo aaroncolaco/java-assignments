@@ -117,10 +117,10 @@ public class InventoryServiceImpl implements InventoryService {
 		
 		for (Item item : items) {
 			
-			date = (Date) item.getManufacturingDate();
+			date = (Date) item.getManufacturingDate();	// had to get expiry date *facepalm*
 			
-			if (calendar.before(date)) {
-				items.remove(item);
+			if (calendar.before(date)) {	// check if today is AFTER expiry date, not before
+				items.remove(item);		// may lead to errors, use Iterator instead so can do iterator.remove()
 			}
 			
 		}
