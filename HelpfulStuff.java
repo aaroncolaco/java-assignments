@@ -137,3 +137,23 @@ public class TestThread {
         T2.start();
     }
 }
+
+
+/*DB connec*/
+
+Class.forName("com.mysql.jdbc.Driver"); // mat have to put
+connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb", "root", "root");
+statement = connection.createStatement();
+resultSet = statement.executeQuery("Select * from cheese_tbl");
+
+
+/*Comparator*/
+class SortByCategory implements Comparator<Question>{
+
+    @Override
+    public int compare(Question q1, Question q2) {
+        return q1.getCategory().compareTo(q2.getCategory());
+    }
+    
+}       
+Collections.sort(queList,new SortByCategory());
