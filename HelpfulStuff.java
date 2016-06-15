@@ -141,7 +141,7 @@ public class TestThread {
 
 /*DB connec*/
 
-Class.forName("com.mysql.jdbc.Driver"); // mat have to put
+Class.forName("com.mysql.jdbc.Driver"); // may have to put
 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventorydb", "root", "root");
 statement = connection.createStatement();
 resultSet = statement.executeQuery("Select * from cheese_tbl");
